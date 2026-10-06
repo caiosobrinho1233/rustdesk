@@ -155,9 +155,9 @@ jobs:
         run: |
           F=libs/hbb_common/src/config.rs
           sed -i "s|^pub const RENDEZVOUS_SERVERS.*|pub const RENDEZVOUS_SERVERS: \&[\&str] = \&[\"$SERVIDOR\"];|" $F
-          sed -i "s|^pub const PUBLIC_RS_PUB_KEY.*|pub const PUBLIC_RS_PUB_KEY: \&str = \"$CHAVE\";|" $F
+          sed -i "s|^pub const RS_PUB_KEY.*|pub const RS_PUB_KEY: \&str = \"$CHAVE\";|" $F
           sed -i 's|RwLock::new("RustDesk".to_owned())|RwLock::new("DeltaDesk".to_owned())|' $F
-          grep -n "RENDEZVOUS_SERVERS\|PUBLIC_RS_PUB_KEY\|DeltaDesk" $F
+          grep -n "RENDEZVOUS_SERVERS\|PUB_KEY\|DeltaDesk" $F
           grep -q "$SERVIDOR" $F
           grep -q "$CHAVE" $F
           grep -q "DeltaDesk" $F
